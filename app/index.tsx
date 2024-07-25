@@ -1,32 +1,37 @@
 import { Text, StyleSheet, View, Image } from "react-native";
-import React, { Component } from "react";
+import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Colors } from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
 import CustomButton from "@/components/button";
+import { useRouter } from "expo-router";
 
-export default class HomeScreen extends Component {
-	render() {
-		return (
-			<SafeAreaView style={styles.container}>
-				<StatusBar style="light" />
-				<View style={styles.background}>
-					<Image
-						source={require("../assets/images/coffee-bg.png")}
-						resizeMode="contain"
-						style={styles.image}
+export default function HomeScreen() {
+	const router = useRouter();
+
+	return (
+		<SafeAreaView style={styles.container}>
+			<StatusBar style="light" />
+			<View style={styles.background}>
+				<Image
+					source={require("../assets/images/coffee-bg.png")}
+					resizeMode="contain"
+					style={styles.image}
+				/>
+				<View style={styles.contents}>
+					<Text style={styles.headingText}>Fall in Love with Coffee in Blissful Delight!</Text>
+					<Text style={styles.description}>
+						Welcome to our cozy coffee corner, where every cup is a delightful for you.
+					</Text>
+					<CustomButton
+						label="Get Started"
+						style={styles.buttonStyle}
+						onPress={() => router.replace("/home")}
 					/>
-					<View style={styles.contents}>
-						<Text style={styles.headingText}>Fall in Love with Coffee in Blissful Delight!</Text>
-						<Text style={styles.description}>
-							Welcome to our cozy coffee corner, where every cup is a delightful for you.
-						</Text>
-						<CustomButton label="Get Started" style={styles.buttonStyle} onPress={() => {}} />
-					</View>
 				</View>
-			</SafeAreaView>
-		);
-	}
+			</View>
+		</SafeAreaView>
+	);
 }
 
 const styles = StyleSheet.create({
