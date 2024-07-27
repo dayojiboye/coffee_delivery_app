@@ -19,7 +19,7 @@ export const Colors = {
 		muted: "#ccc",
 		green: "#36C07E",
 		black: "#000",
-		background: "#f8f8f9",
+		background: "#F9F9F9",
 	},
 	dark: {},
 };

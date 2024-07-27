@@ -13,6 +13,7 @@ import {
 } from "@expo-google-fonts/sora";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { Colors } from "@/constants/Colors";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -39,7 +40,11 @@ export default function RootLayout() {
 
 	return (
 		<ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-			<Stack>
+			<Stack
+				screenOptions={{
+					contentStyle: { backgroundColor: Colors.light.background },
+				}}
+			>
 				<Stack.Screen name="index" options={{ headerShown: false }} />
 				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 				<Stack.Screen name="product/[id]" options={{ headerShown: false }} />

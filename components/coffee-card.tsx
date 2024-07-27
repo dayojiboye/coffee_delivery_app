@@ -1,13 +1,4 @@
-import {
-	Image,
-	Pressable,
-	StyleProp,
-	StyleSheet,
-	Text,
-	TouchableOpacity,
-	View,
-	ViewStyle,
-} from "react-native";
+import { Image, Pressable, StyleProp, StyleSheet, Text, View, ViewStyle } from "react-native";
 import React from "react";
 import { CoffeeType } from "@/types";
 import { Colors } from "@/constants/Colors";
@@ -23,10 +14,7 @@ export default function CoffeeCard({ name, category, price, image, style, id }: 
 	const router = useRouter();
 
 	return (
-		<TouchableOpacity
-			style={[styles.container, style]}
-			onPress={() => router.push(`/product/${id}`)}
-		>
+		<Pressable style={[styles.container, style]} onPress={() => router.push(`/product/${id}`)}>
 			<View style={styles.imageContainer}>
 				<Image source={image} style={styles.image} />
 				<View style={styles.ratingContainer}>
@@ -44,7 +32,7 @@ export default function CoffeeCard({ name, category, price, image, style, id }: 
 					</Pressable>
 				</View>
 			</View>
-		</TouchableOpacity>
+		</Pressable>
 	);
 }
 

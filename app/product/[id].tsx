@@ -1,12 +1,4 @@
-import {
-	Image,
-	Pressable,
-	ScrollView,
-	StyleSheet,
-	Text,
-	TouchableOpacity,
-	View,
-} from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Stack, useRouter } from "expo-router";
 import ChevronLeft from "@/assets/icons/chevron-left.svg";
@@ -15,6 +7,8 @@ import { StatusBar } from "expo-status-bar";
 import { Colors } from "@/constants/Colors";
 import StarIcon from "@/assets/icons/star.svg";
 import { Sizes } from "@/constants";
+import SizePill from "@/components/size-pill";
+import CustomButton from "@/components/button";
 
 export default function Product() {
 	const router = useRouter();
@@ -30,6 +24,7 @@ export default function Product() {
 					headerTitleAlign: "center",
 					headerTitleStyle: styles.headerTitle,
 					headerShadowVisible: false,
+					headerStyle: { backgroundColor: Colors.light.background },
 					headerLeft: (props) => (
 						<TouchableOpacity onPress={() => router.back()}>
 							<ChevronLeft width={18} height={18} />
@@ -42,10 +37,7 @@ export default function Product() {
 					),
 				}}
 			/>
-			<ScrollView
-				style={{ flex: 1, backgroundColor: Colors.light.white }}
-				contentContainerStyle={styles.container}
-			>
+			<ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
 				<Image
 					source={require("../../assets/images/coffee1-large.png")}
 					style={styles.image}
@@ -96,32 +88,24 @@ export default function Product() {
 				<View style={styles.sizes}>
 					{Sizes.map((size) => {
 						const isSelected = selectedSize === size;
-
 						return (
-							<Pressable
+							<SizePill
 								key={size}
-								onPress={() => setSelectedSize(size)}
-								style={[
-									styles.size,
-									{
-										backgroundColor: isSelected ? "#F9F2ED" : Colors.light.white,
-										borderColor: isSelected ? Colors.light.coffee : "#E3E3E3",
-									},
-								]}
-							>
-								<Text
-									style={[
-										styles.sizeText,
-										{ color: isSelected ? Colors.light.coffee : Colors.light.primary },
-									]}
-								>
-									{size[0].toUpperCase()}
-								</Text>
-							</Pressable>
+								isSelected={isSelected}
+								onSelectSize={(value) => setSelectedSize(value)}
+								size={size}
+							/>
 						);
 					})}
 				</View>
 			</ScrollView>
+			<View style={styles.footer}>
+				<View>
+					<Text style={styles.priceText}>Price</Text>
+					<Text style={styles.price}>$ 4.53</Text>
+				</View>
+				<CustomButton label="Buy Now" style={{ flex: 1, maxWidth: 217 }} onPress={() => {}} />
+			</View>
 		</>
 	);
 }
@@ -155,6 +139,7 @@ const styles = StyleSheet.create({
 		fontSize: 12,
 		fontFamily: "sora",
 		color: "#A2A2A2",
+		marginTop: 4,
 	},
 	optionActions: {
 		flexDirection: "row",
@@ -175,7 +160,6 @@ const styles = StyleSheet.create({
 		height: 20,
 	},
 	ratingContainer: {
-		marginTop: 8,
 		flexDirection: "row",
 		gap: 4,
 		alignItems: "center",
@@ -219,16 +203,27 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		gap: 16,
 	},
-	size: {
-		width: 96,
-		height: 41,
-		justifyContent: "center",
+	footer: {
+		backgroundColor: Colors.light.white,
+		paddingTop: 16,
+		paddingHorizontal: 24,
+		paddingBottom: 46,
+		borderTopLeftRadius: 16,
+		borderTopRightRadius: 16,
+		flexDirection: "row",
+		gap: 34,
+		justifyContent: "space-between",
 		alignItems: "center",
-		borderWidth: 1,
-		borderRadius: 12,
 	},
-	sizeText: {
-		fontFamily: "sora",
+	priceText: {
+		color: "#909090",
 		fontSize: 14,
+		fontFamily: "sora",
+	},
+	price: {
+		marginTop: 4,
+		fontSize: 18,
+		fontFamily: "soraSemiBold",
+		color: Colors.light.coffee,
 	},
 });
