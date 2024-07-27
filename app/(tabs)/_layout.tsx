@@ -17,7 +17,7 @@ export default function TabLayout() {
 				headerShown: false,
 				tabBarShowLabel: false,
 				tabBarStyle: {
-					paddingBottom: 0,
+					// paddingBottom: 0,
 					borderTopLeftRadius: 24,
 					borderTopRightRadius: 24,
 					backgroundColor: Colors.light.white,

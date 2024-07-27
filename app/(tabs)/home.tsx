@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import ChevronDown from "@/assets/icons/chevron-down.svg";
 import { StatusBar } from "expo-status-bar";
@@ -7,12 +7,20 @@ import { Colors } from "@/constants/Colors";
 import SearchIcon from "@/assets/icons/search.svg";
 import FiltersIcon from "@/assets/icons/filters.svg";
 import { LinearGradient } from "expo-linear-gradient";
+import { categoriesList, coffeeList } from "@/constants";
+import CategoryPill from "@/components/category-pill";
+import CoffeeCard from "@/components/coffee-card";
 
 export default function Home() {
 	const insets = useSafeAreaInsets();
+	const [selectedCategory, setSelectedCategory] = React.useState(categoriesList[0]);
 
 	return (
-		<View style={styles.container}>
+		<ScrollView
+			style={styles.container}
+			alwaysBounceVertical={false}
+			keyboardShouldPersistTaps="handled"
+		>
 			<StatusBar style="light" />
 			<View style={[styles.header, { paddingTop: insets.top }]}>
 				<LinearGradient
@@ -62,16 +70,44 @@ export default function Home() {
 					/>
 				</Pressable>
 			</View>
-		</View>
+
+			<View style={styles.contentContainer}>
+				<ScrollView
+					contentContainerStyle={styles.categories}
+					horizontal
+					keyboardShouldPersistTaps="handled"
+				>
+					{categoriesList.map((category) => (
+						<CategoryPill
+							key={category}
+							label={category}
+							isSelected={selectedCategory === category}
+							onSelect={(value) => setSelectedCategory(value)}
+						/>
+					))}
+				</ScrollView>
+				<View style={styles.coffeeList}>
+					{coffeeList.map((coffee, index) => (
+						<CoffeeCard
+							key={index}
+							name={coffee.name}
+							category={coffee.category}
+							image={coffee.image}
+							price={coffee.price}
+						/>
+					))}
+				</View>
+			</View>
+		</ScrollView>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		// backgroundColor: "#1c1d1d",
 	},
 	header: {
-		// backgroundColor: "#1c1d1d",
 		paddingBottom: 100,
 		position: "relative",
 	},
@@ -146,5 +182,22 @@ const styles = StyleSheet.create({
 		top: 0,
 		bottom: 0,
 		flex: 1,
+	},
+	contentContainer: {
+		paddingVertical: 94,
+		gap: 24,
+	},
+	categories: {
+		width: "100%",
+		gap: 16,
+		paddingHorizontal: 24,
+	},
+	coffeeList: {
+		flexDirection: "row",
+		flexWrap: "wrap",
+		rowGap: 15,
+		width: "100%",
+		paddingHorizontal: 24,
+		justifyContent: "space-between",
 	},
 });
