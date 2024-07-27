@@ -12,15 +12,18 @@ import BellIcon from "@/assets/icons/bell.svg";
 export default function TabLayout() {
 	return (
 		<Tabs
+			sceneContainerStyle={{ backgroundColor: Colors.light.background }}
 			screenOptions={{
-				tabBarActiveTintColor: Colors["light"].tint,
 				headerShown: false,
 				tabBarShowLabel: false,
 				tabBarStyle: {
 					paddingBottom: 0,
-				},
-				tabBarItemStyle: {
-					paddingVertical: 26,
+					borderTopLeftRadius: 24,
+					borderTopRightRadius: 24,
+					backgroundColor: Colors.light.white,
+					borderTopWidth: 0,
+					overflow: "hidden",
+					position: "absolute",
 				},
 			}}
 		>

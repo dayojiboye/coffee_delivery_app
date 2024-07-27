@@ -14,7 +14,7 @@ export function TabBarIcon({ icon, isFocused }: Props) {
 
 	return (
 		<View style={styles.icon}>
-			<Icon size={28} style={{ marginBottom: -3 }} />
+			<Icon size={28} />
 			<View
 				style={[
 					styles.activeDot,
@@ -27,7 +27,7 @@ export function TabBarIcon({ icon, isFocused }: Props) {
 
 const styles = StyleSheet.create({
 	icon: {
-		gap: 10,
+		gap: 6,
 		alignItems: "center",
 	},
 	activeDot: {
