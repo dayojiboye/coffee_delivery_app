@@ -1,17 +1,32 @@
-import { Image, Pressable, StyleSheet, Text, View, ViewStyle } from "react-native";
+import {
+	Image,
+	Pressable,
+	StyleProp,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	View,
+	ViewStyle,
+} from "react-native";
 import React from "react";
 import { CoffeeType } from "@/types";
 import { Colors } from "@/constants/Colors";
 import StarIcon from "@/assets/icons/star.svg";
 import PlusIcon from "@/assets/icons/plus.svg";
+import { useRouter } from "expo-router";
 
 type Props = CoffeeType & {
-	style?: ViewStyle;
+	style?: StyleProp<ViewStyle>;
 };
 
-export default function CoffeeCard({ name, category, price, image, style }: Props) {
+export default function CoffeeCard({ name, category, price, image, style, id }: Props) {
+	const router = useRouter();
+
 	return (
-		<Pressable style={[styles.container, style]}>
+		<TouchableOpacity
+			style={[styles.container, style]}
+			onPress={() => router.push(`/product/${id}`)}
+		>
 			<View style={styles.imageContainer}>
 				<Image source={image} style={styles.image} />
 				<View style={styles.ratingContainer}>
@@ -29,7 +44,7 @@ export default function CoffeeCard({ name, category, price, image, style }: Prop
 					</Pressable>
 				</View>
 			</View>
-		</Pressable>
+		</TouchableOpacity>
 	);
 }
 

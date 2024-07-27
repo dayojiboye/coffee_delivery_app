@@ -1,11 +1,11 @@
-import { Pressable, StyleSheet, Text, TextStyle, ViewStyle } from "react-native";
+import { Pressable, StyleProp, StyleSheet, Text, TextStyle, ViewStyle } from "react-native";
 import React from "react";
 import { Colors } from "@/constants/Colors";
 
 type Props = {
-	style?: ViewStyle;
+	style?: StyleProp<ViewStyle>;
 	label: string;
-	labelStyle?: TextStyle;
+	labelStyle?: StyleProp<TextStyle>;
 	onPress: () => void;
 };
 

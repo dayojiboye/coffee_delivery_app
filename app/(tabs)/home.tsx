@@ -87,9 +87,10 @@ export default function Home() {
 					))}
 				</ScrollView>
 				<View style={styles.coffeeList}>
-					{coffeeList.map((coffee, index) => (
+					{coffeeList.map((coffee) => (
 						<CoffeeCard
-							key={index}
+							key={coffee.id}
+							id={coffee.id}
 							name={coffee.name}
 							category={coffee.category}
 							image={coffee.image}

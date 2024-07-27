@@ -4,6 +4,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import {
+	Sora_300Light,
 	Sora_400Regular,
 	Sora_500Medium,
 	Sora_600SemiBold,
@@ -19,6 +20,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
 	const colorScheme = useColorScheme();
 	const [loaded, error] = useFonts({
+		soraLight: Sora_300Light,
 		sora: Sora_400Regular,
 		soraMedium: Sora_500Medium,
 		soraSemiBold: Sora_600SemiBold,
@@ -40,6 +42,7 @@ export default function RootLayout() {
 			<Stack>
 				<Stack.Screen name="index" options={{ headerShown: false }} />
 				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+				<Stack.Screen name="product/[id]" options={{ headerShown: false }} />
 				<Stack.Screen name="+not-found" />
 			</Stack>
 		</ThemeProvider>
