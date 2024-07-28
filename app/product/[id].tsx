@@ -9,11 +9,13 @@ import StarIcon from "@/assets/icons/star.svg";
 import { Sizes } from "@/constants";
 import SizePill from "@/components/size-pill";
 import CustomButton from "@/components/button";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Product() {
 	const router = useRouter();
 	const [selectedSize, setSelectedSize] = React.useState(Sizes[1]);
 	const { id: name } = useLocalSearchParams();
+	const insets = useSafeAreaInsets();
 
 	return (
 		<>
@@ -100,7 +102,7 @@ export default function Product() {
 					})}
 				</View>
 			</ScrollView>
-			<View style={styles.footer}>
+			<View style={[styles.footer, { paddingBottom: insets.bottom }]}>
 				<View>
 					<Text style={styles.priceText}>Price</Text>
 					<Text style={styles.price}>$ 4.53</Text>
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
 	warmth: {
 		fontSize: 12,
 		fontFamily: "sora",
-		color: "#A2A2A2",
+		color: Colors.light.border,
 		marginTop: 4,
 	},
 	optionActions: {
@@ -179,7 +181,7 @@ const styles = StyleSheet.create({
 	ratingCount: {
 		fontSize: 12,
 		fontFamily: "sora",
-		color: "#A2A2A2",
+		color: Colors.light.border,
 	},
 	divider: {
 		backgroundColor: "#E3E3E3",
@@ -196,7 +198,7 @@ const styles = StyleSheet.create({
 	},
 	description: {
 		marginTop: 8,
-		color: "#A2A2A2",
+		color: Colors.light.border,
 		fontFamily: "soraLight",
 		fontSize: 14,
 		lineHeight: 21,
@@ -214,7 +216,7 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.light.white,
 		paddingTop: 16,
 		paddingHorizontal: 24,
-		paddingBottom: 46,
+		// paddingBottom: 46,
 		borderTopLeftRadius: 16,
 		borderTopRightRadius: 16,
 		flexDirection: "row",

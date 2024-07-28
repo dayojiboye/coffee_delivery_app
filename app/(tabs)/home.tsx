@@ -52,10 +52,10 @@ export default function Home() {
 						</View>
 						<TextInput
 							style={styles.searchInput}
-							placeholderTextColor="#A2A2A2"
+							placeholderTextColor={Colors.light.border}
 							placeholder="Search coffee"
-							cursorColor="#A2A2A2"
-							selectionColor="#A2A2A2"
+							cursorColor={Colors.light.border}
+							selectionColor={Colors.light.border}
 						/>
 					</View>
 					<Pressable style={styles.filterButtons}>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 24,
 	},
 	dropdownLabel: {
-		color: "#A2A2A2",
+		color: Colors.light.border,
 		fontSize: 12,
 		fontFamily: "sora",
 	},

@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 	description: {
 		fontSize: 14,
 		fontFamily: "sora",
-		color: "#A2A2A2",
+		color: Colors.light.border,
 		textAlign: "center",
 		lineHeight: 21,
 		maxWidth: 327,

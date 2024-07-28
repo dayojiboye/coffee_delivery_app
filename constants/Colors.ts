@@ -20,6 +20,7 @@ export const Colors = {
 		green: "#36C07E",
 		black: "#000",
 		background: "#F9F9F9",
+		border: "#A2A2A2",
 	},
 	dark: {},
 };

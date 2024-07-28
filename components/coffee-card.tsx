@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
 	},
 	category: {
 		marginTop: 4,
-		color: "#A2A2A2",
+		color: Colors.light.border,
 		fontFamily: "sora",
 		fontSize: 12,
 	},
