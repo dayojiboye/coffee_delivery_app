@@ -24,6 +24,7 @@ export default function TabLayout() {
 					borderTopWidth: 0,
 					overflow: "hidden",
 					position: "absolute",
+					borderCurve: "continuous",
 				},
 			}}
 		>

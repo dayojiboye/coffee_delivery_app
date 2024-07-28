@@ -216,6 +216,7 @@ const styles = StyleSheet.create({
 		gap: 34,
 		justifyContent: "space-between",
 		alignItems: "center",
+		borderCurve: "continuous",
 	},
 	priceText: {
 		color: "#909090",
