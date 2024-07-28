@@ -52,7 +52,10 @@ export default function TabButtons({ buttons, selectedTab, setSelectedTab }: Tab
 	});
 
 	return (
-		<View accessibilityRole="tabbar" style={styles.tabBar}>
+		<View
+			// accessibilityRole="tabbar"
+			style={styles.tabBar}
+		>
 			<Animated.View
 				style={[
 					animatedStyle,
@@ -70,7 +73,7 @@ export default function TabButtons({ buttons, selectedTab, setSelectedTab }: Tab
 					return (
 						<Pressable
 							key={index.toString()}
-							accessibilityRole="tab"
+							// accessibilityRole="tab"
 							accessibilityLabel={button.accessibilityLabel}
 							onPress={() => onTabPress(index)}
 							style={styles.tabButton}

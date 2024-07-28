@@ -11,11 +11,11 @@ export default function HomeScreen() {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<StatusBar style="light" />
+			<StatusBar style="light" translucent />
 			<View style={styles.background}>
 				<Image
 					source={require("../assets/images/coffee-bg.png")}
-					resizeMode="contain"
+					resizeMode="cover"
 					style={styles.image}
 				/>
 				<View style={styles.contents}>

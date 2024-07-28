@@ -20,7 +20,6 @@ import MinusIcon from "@/assets/icons/minus.svg";
 import PlusIcon from "@/assets/icons/plus-dark.svg";
 import ChevronRight from "@/assets/icons/chevron-right.svg";
 import DiscountIcon from "@/assets/icons/discount.svg";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ChevronDown from "@/assets/icons/chevron-down-dark.svg";
 import WalletIcon from "@/assets/icons/wallet.svg";
 import CustomButton from "@/components/button";
@@ -30,7 +29,6 @@ export default function OrderScreen() {
 	const { name } = useLocalSearchParams();
 	const [currentTab, setCurrentTab] = React.useState(OrderTabs.Deliver);
 	const [quantity, setQuantity] = React.useState(1);
-	const insets = useSafeAreaInsets();
 
 	const buttons: TabButton[] = [
 		{
@@ -134,7 +132,7 @@ export default function OrderScreen() {
 					</View>
 				</View>
 			</ScrollView>
-			<View style={[styles.footer, { paddingBottom: insets.bottom }]}>
+			<View style={styles.footer}>
 				<Pressable style={[styles.row, { justifyContent: "space-between", width: "100%" }]}>
 					<View style={[styles.row, { gap: 9.5 }]}>
 						<WalletIcon />
@@ -158,8 +156,8 @@ const styles = StyleSheet.create({
 		fontFamily: "soraSemiBold",
 	},
 	container: {
-		flex: 1,
-		paddingTop: 24,
+		flexGrow: 1,
+		paddingVertical: 24,
 	},
 	headingText: {
 		color: Colors.light.primary,
@@ -280,6 +278,7 @@ const styles = StyleSheet.create({
 	footer: {
 		backgroundColor: Colors.light.white,
 		paddingTop: 16,
+		paddingBottom: 46,
 		paddingHorizontal: 24,
 		borderTopLeftRadius: 16,
 		borderTopRightRadius: 16,

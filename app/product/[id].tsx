@@ -9,13 +9,11 @@ import StarIcon from "@/assets/icons/star.svg";
 import { Sizes } from "@/constants";
 import SizePill from "@/components/size-pill";
 import CustomButton from "@/components/button";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Product() {
 	const router = useRouter();
 	const [selectedSize, setSelectedSize] = React.useState(Sizes[1]);
 	const { id: name } = useLocalSearchParams();
-	const insets = useSafeAreaInsets();
 
 	return (
 		<>
@@ -40,7 +38,7 @@ export default function Product() {
 					),
 				}}
 			/>
-			<ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
+			<ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container} scrollEnabled>
 				<Image
 					source={require("../../assets/images/coffee1-large.png")}
 					style={styles.image}
@@ -102,7 +100,7 @@ export default function Product() {
 					})}
 				</View>
 			</ScrollView>
-			<View style={[styles.footer, { paddingBottom: insets.bottom }]}>
+			<View style={styles.footer}>
 				<View>
 					<Text style={styles.priceText}>Price</Text>
 					<Text style={styles.price}>$ 4.53</Text>
@@ -124,7 +122,7 @@ const styles = StyleSheet.create({
 		fontFamily: "soraSemiBold",
 	},
 	container: {
-		flex: 1,
+		flexGrow: 1,
 		padding: 24,
 	},
 	image: {
@@ -216,7 +214,7 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.light.white,
 		paddingTop: 16,
 		paddingHorizontal: 24,
-		// paddingBottom: 46,
+		paddingBottom: 46,
 		borderTopLeftRadius: 16,
 		borderTopRightRadius: 16,
 		flexDirection: "row",

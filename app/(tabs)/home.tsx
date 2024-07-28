@@ -76,6 +76,7 @@ export default function Home() {
 					contentContainerStyle={styles.categories}
 					horizontal
 					keyboardShouldPersistTaps="handled"
+					showsHorizontalScrollIndicator={false}
 				>
 					{categoriesList.map((category) => (
 						<CategoryPill
@@ -193,7 +194,6 @@ const styles = StyleSheet.create({
 		gap: 24,
 	},
 	categories: {
-		width: "100%",
 		gap: 16,
 		paddingHorizontal: 24,
 	},
