@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.light.coffee,
 		justifyContent: "center",
 		alignItems: "center",
+		borderCurve: "continuous",
 	},
 	text: {
 		color: Colors.light.white,

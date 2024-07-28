@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		borderWidth: 1,
 		borderRadius: 12,
+		borderCurve: "continuous",
 	},
 	sizeText: {
 		fontFamily: "sora",

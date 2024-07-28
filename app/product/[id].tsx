@@ -26,12 +26,12 @@ export default function Product() {
 					headerShadowVisible: false,
 					headerStyle: { backgroundColor: Colors.light.background },
 					headerLeft: (props) => (
-						<TouchableOpacity onPress={() => router.back()}>
+						<TouchableOpacity onPress={() => router.back()} style={{ marginLeft: 24 }}>
 							<ChevronLeft width={18} height={18} />
 						</TouchableOpacity>
 					),
 					headerRight: (props) => (
-						<TouchableOpacity>
+						<TouchableOpacity style={{ marginRight: 24 }}>
 							<HeartIcon width={20} height={20} />
 						</TouchableOpacity>
 					),
@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
 		width: "100%",
 		height: 202,
 		borderRadius: 16,
+		borderCurve: "continuous",
 	},
 	name: {
 		fontSize: 20,
@@ -154,6 +155,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		width: 44,
 		height: 44,
+		borderCurve: "continuous",
 	},
 	optionIcon: {
 		width: 20,

@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
 		height: 29,
 		alignItems: "center",
 		justifyContent: "center",
+		borderCurve: "continuous",
 	},
 	label: {
 		fontFamily: "soraSemiBold",

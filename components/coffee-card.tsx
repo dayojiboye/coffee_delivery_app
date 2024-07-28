@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.light.white,
 		borderRadius: 16,
 		width: "47.5%",
+		borderCurve: "continuous",
 	},
 	imageContainer: {
 		width: "100%",
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
 		width: "100%",
 		height: "100%",
 		borderRadius: 12,
+		borderCurve: "continuous",
 	},
 	ratingContainer: {
 		position: "absolute",
@@ -68,6 +70,7 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "center",
 		gap: 4,
+		borderCurve: "continuous",
 	},
 	rating: {
 		color: Colors.light.white,
@@ -107,5 +110,6 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.light.coffee,
 		padding: 8,
 		borderRadius: 8,
+		borderCurve: "continuous",
 	},
 });

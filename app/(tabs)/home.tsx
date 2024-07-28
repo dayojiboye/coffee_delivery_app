@@ -26,7 +26,7 @@ export default function Home() {
 				<LinearGradient
 					colors={["rgba(17, 17, 17, 1)", "rgba(49, 49, 49, 1)"]}
 					style={styles.background}
-					end={{ x: 0.1, y: 0.9 }}
+					end={{ x: 0.1, y: 0.8 }}
 				/>
 				<Pressable style={styles.dropdown}>
 					<Text style={styles.dropdownLabel}>Location</Text>
@@ -142,14 +142,16 @@ const styles = StyleSheet.create({
 	searchInputContainer: {
 		position: "relative",
 		flex: 1,
+		backgroundColor: "#2A2A2A",
+		borderCurve: "continuous",
+		borderRadius: 12,
 	},
 	searchInput: {
 		height: 52,
-		backgroundColor: "#2A2A2A",
+		backgroundColor: "transparent",
 		flex: 1,
 		padding: 16,
 		paddingLeft: 44,
-		borderRadius: 12,
 		color: Colors.light.white,
 	},
 	filterButtons: {
@@ -159,6 +161,7 @@ const styles = StyleSheet.create({
 		borderRadius: 12,
 		justifyContent: "center",
 		alignItems: "center",
+		borderCurve: "continuous",
 	},
 	banner: {
 		flex: 1,
@@ -175,6 +178,7 @@ const styles = StyleSheet.create({
 		width: "90%",
 		maxWidth: 327,
 		borderRadius: 16,
+		borderCurve: "continuous",
 	},
 	background: {
 		position: "absolute",
