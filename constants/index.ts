@@ -34,3 +34,8 @@ export const coffeeList: CoffeeType[] = [
 ];
 
 export const Sizes = ["Small", "Medium", "Large"];
+
+export enum OrderTabs {
+	Deliver,
+	Pickup,
+}

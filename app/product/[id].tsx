@@ -1,6 +1,6 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import { Stack, useRouter } from "expo-router";
+import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import ChevronLeft from "@/assets/icons/chevron-left.svg";
 import HeartIcon from "@/assets/icons/heart-black.svg";
 import { StatusBar } from "expo-status-bar";
@@ -13,6 +13,7 @@ import CustomButton from "@/components/button";
 export default function Product() {
 	const router = useRouter();
 	const [selectedSize, setSelectedSize] = React.useState(Sizes[1]);
+	const { id: name } = useLocalSearchParams();
 
 	return (
 		<>
@@ -45,7 +46,7 @@ export default function Product() {
 				/>
 				<View style={styles.options}>
 					<View>
-						<Text style={styles.name}>Caffe Mocha</Text>
+						<Text style={styles.name}>{name}</Text>
 						<Text style={styles.warmth}>Ice/Hot</Text>
 					</View>
 					<View style={styles.optionActions}>
@@ -104,7 +105,11 @@ export default function Product() {
 					<Text style={styles.priceText}>Price</Text>
 					<Text style={styles.price}>$ 4.53</Text>
 				</View>
-				<CustomButton label="Buy Now" style={{ flex: 1, maxWidth: 217 }} onPress={() => {}} />
+				<CustomButton
+					label="Buy Now"
+					style={{ flex: 1, maxWidth: 217 }}
+					onPress={() => router.push(`/order?name=${name}`)}
+				/>
 			</View>
 		</>
 	);

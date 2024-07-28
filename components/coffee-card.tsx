@@ -14,7 +14,7 @@ export default function CoffeeCard({ name, category, price, image, style, id }: 
 	const router = useRouter();
 
 	return (
-		<Pressable style={[styles.container, style]} onPress={() => router.push(`/product/${id}`)}>
+		<Pressable style={[styles.container, style]} onPress={() => router.push(`/product/${name}`)}>
 			<View style={styles.imageContainer}>
 				<Image source={image} style={styles.image} />
 				<View style={styles.ratingContainer}>
