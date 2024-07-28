@@ -14,6 +14,7 @@ import {
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { Colors } from "@/constants/Colors";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -40,17 +41,20 @@ export default function RootLayout() {
 
 	return (
 		<ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-			<Stack
-				screenOptions={{
-					contentStyle: { backgroundColor: Colors.light.background },
-				}}
-			>
-				<Stack.Screen name="index" options={{ headerShown: false }} />
-				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-				<Stack.Screen name="product/[id]" options={{ headerShown: false }} />
-				<Stack.Screen name="order" options={{ headerShown: false }} />
-				<Stack.Screen name="+not-found" />
-			</Stack>
+			<GestureHandlerRootView>
+				<Stack
+					screenOptions={{
+						contentStyle: { backgroundColor: Colors.light.background },
+					}}
+				>
+					<Stack.Screen name="index" options={{ headerShown: false }} />
+					<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+					<Stack.Screen name="product/[id]" options={{ headerShown: false }} />
+					<Stack.Screen name="order" options={{ headerShown: false }} />
+					<Stack.Screen name="tracking" options={{ headerShown: false }} />
+					<Stack.Screen name="+not-found" />
+				</Stack>
+			</GestureHandlerRootView>
 		</ThemeProvider>
 	);
 }

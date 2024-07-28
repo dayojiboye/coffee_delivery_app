@@ -143,7 +143,11 @@ export default function OrderScreen() {
 					</View>
 					<ChevronDown />
 				</Pressable>
-				<CustomButton label="Order" style={{ marginTop: 8, width: "100%" }} onPress={() => {}} />
+				<CustomButton
+					label="Order"
+					style={{ marginTop: 8, width: "100%" }}
+					onPress={() => router.push("/tracking")}
+				/>
 			</View>
 		</>
 	);
