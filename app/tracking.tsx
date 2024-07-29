@@ -20,6 +20,8 @@ export default function Tracking() {
 			<Stack.Screen
 				options={{
 					headerTitle: (props) => <></>,
+					headerBackVisible: false,
+					headerTitleAlign: "center",
 					headerShown: true,
 					headerShadowVisible: false,
 					headerTransparent: true,
